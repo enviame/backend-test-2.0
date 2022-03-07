@@ -25,11 +25,17 @@ The test must be delivered in one week (7 days)
 ## Before you begin
 
 - Provide a **private GitHub repository** with your code and add the following users as collaborators: **@rolivagon @rsebjara @vmolina-enviame @vham @rcarrascop**
-- You must provide two containerized microservices with the proper instructions to run the app.
+- You must provide two containerized microservices with the proper instructions to run the app. Please don't forget to include:
+    - Readme.md file with instructions on how to run your app
+    - Postman collection o req.http with examples and instructions on how to test all the endpoints of your app
+    - Enviroment file example (.env.example) with all the enviroment variables needed
+    - Dockerfile and docker-compose.yml with all the settings and containers needed to run your solution
 - Please make sure to test your app in a clean environment and right from the start, because **if we can't run it, your test will be discarded inmediately** and it would be disappointing for all of us.
 - As a backend test is not required to provide any view, quite the opposite we encourage You to provide an API where we could test all the features.
 
 In case of any technical questions [Contact Us](mailto:tech-test@enviame.io)
+
+Once we start reviewing your app we might send you some questions, therefore we will appreciate your timely replies
 
 ### User Stories
 
@@ -133,10 +139,10 @@ The statuses of a delivery are: **"READY_FOR_PICK_UP", "AT_ORIGIN", "EN_ROUTE_OF
 It is important that you write a readme with all the necessary instructions on how to run your services and how to properly test them. Please include examples. If the readme is incorrect and we can't run and test your services, we will not be able to review them.
 
 - Functionality (36 pts)
-- Testing (12 pts)
+- Unit tests (12 pts)
 - Documentation (6 pts)
-    - how to run your app
-    - how to test your app
+    - Readme.md file with instructions on how to run your app
+    - Postman collection o req.http with examples and instructions on **how to test all the endpoints** of your app
     - Software design (services architecture diagram)
 - Programming style (6 pts)
 - Proper use of http responses (2 pts)
