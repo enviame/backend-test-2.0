@@ -27,7 +27,7 @@ The test must be delivered in one week (7 days)
 - Provide a **private GitHub repository** with your code and add the following users as collaborators: **@rolivagon @rsebjara @vmolina-enviame @vham @rcarrascop**
 - You must provide two containerized microservices with the proper instructions to run the app. Please don't forget to include:
     - Readme.md file with instructions on how to run your app
-    - Postman collection o req.http with examples and instructions on how to test all the endpoints of your app
+    - Postman collection or a req.http file with examples and instructions on how to test all the endpoints of your app
     - Enviroment file example (.env.example) with all the enviroment variables needed
     - Dockerfile and docker-compose.yml with all the settings and containers needed to run your solution
 - Please make sure to test your app in a clean environment and right from the start, because **if we can't run it, your test will be discarded inmediately** and it would be disappointing for all of us.
@@ -35,11 +35,11 @@ The test must be delivered in one week (7 days)
 
 In case of any technical questions [Contact Us](mailto:tech-test@enviame.io)
 
-Once we start reviewing your app we might send you some questions, therefore we will appreciate your timely replies
+Once we start reviewing your app we might send you some questions, therefore we will appreciate your timely replies.
 
-### User Stories
+## User Stories
 
-#### ecommerce microservice
+### ecommerce microservice
 1. As a "Marketplace Administrator" you may create, view, edit, delete and list "sellers". Each seller requires: name, short description and at least one "Seller User".
 2. As a "Seller User" you may view and edit seller information, and You must add a warehouse address as a previous condition to sell a product.
 3. As a "Seller User" you may create, view, edit, edit, delete and list "products". Each product requires at least: name, short description and quantity.
@@ -51,7 +51,7 @@ Once we start reviewing your app we might send you some questions, therefore we 
 9. As any kind of user you must see the current status of an order. The posible statuses are: "created", "confirmed", "dispached" and "delivered". The "delivered" status is triggered by the delivery microservices trough a webhook. That means the ecommerce microservice must provide an authenticated endpoint what will be registered in other microservices to notify when an order is delivered (or any other delivery status of an oder)
 
 
-#### delivery microservice
+### delivery microservice
 
 1. The delivery microservice must provide an authenticated API that allows create, view, edit and delete a delivery. The functionality to get the status history (tracking) of a delivery must provided as well.
 
@@ -131,23 +131,23 @@ Once we start reviewing your app we might send you some questions, therefore we 
 
 3. The delivery microservice must provide a service to register an endpoint to receiving notifications of changes in the status of an order (using webhooks). Each status must be notified only one time. 
 
-#### Definitions:
+### Definitions:
 The statuses of a delivery are: **"READY_FOR_PICK_UP", "AT_ORIGIN", "EN_ROUTE_OF_DELIVERY", "NOT_DELIVERED", "DELIVERED".**
 
 ## Aspects to be evaluated
 
-It is important that you write a readme with all the necessary instructions on how to run your services and how to properly test them. Please include examples. If the readme is incorrect and we can't run and test your services, we will not be able to review them.
+It is important that you write a readme.md with all the necessary instructions on how to run your services and a postman collection or a req.http file with examples and instructions on how to properly test them. Please include examples. If the readme is incorrect and we can't run and test your services, we will not be able to review them.
 
 - Functionality (36 pts)
 - Unit tests (12 pts)
 - Documentation (6 pts)
     - Readme.md file with instructions on how to run your app
-    - Postman collection o req.http with examples and instructions on **how to test all the endpoints** of your app
+    - Postman collection or a req.http file with examples and instructions on **how to test all the endpoints** of your app
     - Software design (services architecture diagram)
 - Programming style (6 pts)
 - Proper use of http responses (2 pts)
 - Proper handling of errors and exceptions (2 pts)
-- Appropriate Clean Architecture Template use (+6)
+- Appropriate Clean Architecture Template use (6)
 
 ## Aspects to be ignored
 
