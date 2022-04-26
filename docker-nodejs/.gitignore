@@ -1,0 +1,10 @@
+# Directories
+__pycache__/
+db-storage/
+.vscode/
+.pytest_cache/
+
+# Files
+.env
+*pyc
+.directory

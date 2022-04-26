@@ -1,0 +1,135 @@
+version: "3"
+services:
+  
+  #ecommerce-service block
+  ecommerce-app:
+  
+    build: ${ECOMMERCE_SERVICE_PATH}/Docker/app/.
+  
+    container_name: ${ECOMMERCE_SERVICE_NAME}
+  
+    env_file:
+      - ${ECOMMERCE_SERVICE_PATH}/Docker/app/.env
+      - .env
+    
+    environment:
+      - SEQUELIZE_HOST=${ECOMMERCE_MYSQL_NAME}
+      - SEQUELIZE_DATABASE=${ECOMMERCE_MYSQL_DATABASE}
+      - REDIS_HOST=${ECOMMERCE_REDIS_HOST}
+      - FIRESTORE_EMULATOR_HOST=${ECOMMERCE_FIRESTORE_NAME}:8080
+      - FIRESTORE_PROJECT_ID=${ECOMMERCE_FIRESTORE_NAME}
+
+    command: ["npm", "run", "dev"]
+  
+    volumes:
+      - ${ECOMMERCE_SERVICE_PATH}/src:/app/src
+      - ${ECOMMERCE_SERVICE_PATH}/tests:/app/tests
+      - ${ECOMMERCE_SERVICE_PATH}/Docker/database/firestore-account:/app/firestore-account
+      
+    ports:
+      - ${ECOMMERCE_APP_PORT}:8080
+    
+    depends_on:
+      - ecommerce-mysql
+      - ecommerce-redis
+      - ecommerce-firestore
+  
+  ecommerce-mysql:
+  
+    build: ${ECOMMERCE_SERVICE_PATH}/Docker/database/.
+  
+    restart: always
+  
+    container_name: ${ECOMMERCE_MYSQL_NAME}
+  
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=${ECOMMERCE_MYSQL_DATABASE}
+
+    ports:
+      - ${ECOMMERCE_MYSQL_PORT}:3306
+  
+    command: 
+      - --default-authentication-plugin=mysql_native_password
+
+  ecommerce-redis:
+  
+    container_name: ${ECOMMERCE_REDIS_HOST}
+
+    image: redis:alpine
+  
+  ecommerce-firestore:
+
+    container_name: ${ECOMMERCE_FIRESTORE_NAME}
+
+    image: mtlynch/firestore-emulator
+
+    environment:
+      FIRESTORE_PROJECT_ID: ${ECOMMERCE_FIRESTORE_NAME}
+    
+  #delivery-service block
+  delivery-app:
+  
+    build: ${DELIVERY_SERVICE_PATH}/Docker/app/.
+  
+    container_name: ${DELIVERY_SERVICE_NAME}
+  
+    env_file:
+      - ${DELIVERY_SERVICE_PATH}/Docker/app/.env
+      - .env
+    
+    environment:
+      - SEQUELIZE_HOST=${DELIVERY_MYSQL_NAME}
+      - SEQUELIZE_DATABASE=${DELIVERY_MYSQL_DATABASE}
+      - REDIS_HOST=${DELIVERY_REDIS_HOST}
+      - FIRESTORE_EMULATOR_HOST=${DELIVERY_FIRESTORE_NAME}:8080
+      - FIRESTORE_PROJECT_ID=${DELIVERY_FIRESTORE_NAME}
+
+    command: ["npm", "run", "dev"]
+  
+    volumes:
+      - ${DELIVERY_SERVICE_PATH}/src:/app/src
+      - ${DELIVERY_SERVICE_PATH}/tests:/app/tests
+      - ${DELIVERY_SERVICE_PATH}/Docker/database/firestore-account:/app/firestore-account
+      
+    ports:
+      - ${DELIVERY_APP_PORT}:8080
+    
+    depends_on:
+      - delivery-mysql
+      - delivery-redis
+      - delivery-firestore
+  
+  delivery-mysql:
+  
+    build: ${DELIVERY_SERVICE_PATH}/Docker/database/.
+  
+    restart: always
+  
+    container_name: ${DELIVERY_MYSQL_NAME}
+  
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=${DELIVERY_MYSQL_DATABASE}
+
+    ports:
+      - ${DELIVERY_MYSQL_PORT}:3306
+  
+    command: 
+      - --default-authentication-plugin=mysql_native_password
+
+  delivery-redis:
+  
+    container_name: ${DELIVERY_REDIS_HOST}
+
+    image: redis:alpine
+  
+  delivery-firestore:
+
+    container_name: ${DELIVERY_FIRESTORE_NAME}
+
+    image: mtlynch/firestore-emulator
+
+    environment:
+      FIRESTORE_PROJECT_ID: ${DELIVERY_FIRESTORE_NAME}
+  

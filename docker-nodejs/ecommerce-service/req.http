@@ -1,0 +1,31 @@
+### Saludo.
+GET http://localhost:8000/greeting
+
+### Obtener todos los libros.
+GET http://localhost:8000/books
+
+### Obtener libro por ID.
+GET http://localhost:8000/books/gIIQnRJzmonQ4WgUqEZq
+
+### Crear libro.
+POST http://localhost:8000/books
+Content-Type: application/json
+
+{
+    "title": "Mi nuevo libro",
+    "author": "Hans A.C.",
+    "pages": 100
+}
+
+### Actualizar libro.
+PUT http://localhost:8000/books/gIIQnRJzmonQ4WgUqEZq
+Content-Type: application/json
+
+{
+    "title": "Mi nuevo libro (edición 2)",
+    "author": "Hans A.C.",
+    "pages": 110
+}
+
+### Borrar libro.
+DELETE http://localhost:8000/books/gIIQnRJzmonQ4WgUqEZq
