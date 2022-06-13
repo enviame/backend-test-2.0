@@ -37,7 +37,7 @@ class SequelizeClient {
 
   }
 
-  syncDatabase() {
+  async syncDatabase() {
 
     // Crea las tablas que no existan en la base de datos en base a los modelos definidos.
 
@@ -45,7 +45,7 @@ class SequelizeClient {
       alter: false,
     };
 
-    this.sequelize.sync(syncOptions)
+    await this.sequelize.sync(syncOptions)
       .catch(error => {
         console.log("Couldn't sync database", error);
       });
