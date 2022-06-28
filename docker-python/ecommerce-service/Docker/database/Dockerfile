@@ -1,6 +1,6 @@
 # Use the official Mysql image.
 # https://hub.docker.com/_/mysql
-FROM mysql:5.7
+FROM mysql:8
 
 ADD script.sql /docker-entrypoint-initdb.d/script.sql
 
