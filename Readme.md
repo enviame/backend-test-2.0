@@ -47,7 +47,7 @@ Para cada microservicio deberás desarrollar las historias que se indican a cont
 ## Historias de Usuario
 
 ### ecommerce microservice
-1. Como usuario administrador de marketplace ("marketplace admin") podrás crear, ver, editar, eliminar y listar tiendas, en adelante "seller". Cada "seller" requiere al menos los siguientes datos: nombre, descripción corta y al menos un usuario ("seller user").
+1. Como usuario administrador de marketplace ("marketplace admin") podrás crear, ver, editar, eliminar y listar tiendas, en adelante "stores". Cada "store" requiere al menos los siguientes datos: nombre, descripción corta y al menos un usuario ("seller user").
 2. Como "seller user" podrás ver y editar datos de la tienda ("store"). Deberás poder agregar una dirección de bodega "warehouse address", lo cuál será condición previa y necesaria para poder vender un producto.
 3. Como "seller user" podrás crear, ver, editar y listar productos ("products"). Cada producto requiere al menos los siguientes datos: nombre, descripción corta, precio, sku de producto y cantidad.
 4. Cualquier persona podrá registrarse como usuario del marketplace ("marketplace user"). Cada "marketplace user" requiere al menos los siguientes datos: nombre, email y dirección de entrega ("shipping_address").

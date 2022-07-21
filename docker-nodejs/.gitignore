@@ -5,6 +5,5 @@ db-storage/
 .pytest_cache/
 
 # Files
-.env
 *pyc
 .directory
