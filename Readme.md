@@ -40,14 +40,14 @@ Once we start reviewing your app we might send you some questions, therefore we 
 ## User Stories
 
 ### ecommerce microservice
-1. As a "Marketplace Administrator" you may create, view, edit, delete and list "stores". Each store requires: name, short description and at least one "Store User".
-2. As a "Store User" you may view and edit store information, and you must add a warehouse address as a previous condition to sell a product.
-3. As a "Store User" you may create, view, edit, edit, delete and list "products". Each product requires at least: name, short description and quantity.
-4. As an "Internet User", You may register as a "Marketplace User". Each marketplace user requires at least: email and shipping_addres.
-5. As a "Marketplace User", You may buy products of different stores, your purchase couldn't exceed the stock of a product, and immediately reduce the available stock of the products according your purchase. In case the purchase exceed the stock of a product, the transacction will not be accepted.
-6. As a "Store User", You may list and view your "buy orders". You may change the order's status from "created" to "confirmed", and from "confirmed" to "dispatched". Each order must have: product sku, product quantity and delivery information. When you change an order to dispatched status, the ecommerce microservice notify the delivery microservice through delivery creation endpoint provided by the delivery microservice api.
-7. As a "Marketplace User", You may "cancell" an order only if the status is "created" or "confirmed". In case an order is cancelled the available stock of the products must be increased.
-8. As a "Marketplace Administrator", You may list, view and "cancell" orders.
+1. As a "Marketplace Administrator" you may create, view, edit, delete and list "stores". Each store requires: name, short description and at least one "Seller User".
+2. As a "Seller User" you may view and edit store information, and you must add a warehouse address as a previous condition to sell a product.
+3. As a "Seller User" you may create, view, edit, edit, delete and list "products". Each product requires at least: name, short description and quantity.
+4. As an "Internet User", you may register as a "Marketplace User". Each marketplace user requires at least: email and shipping_addres.
+5. As a "Marketplace User", you may buy products of different stores. Your purchase couldn't exceed the stock of a product, and immediately reduce the available stock of the products according your purchase. In case the purchase exceed the stock of a product, the transacction will not be accepted.
+6. As a "Seller User", you may list and view your "buy orders". You may change the order's status from "created" to "confirmed", and from "confirmed" to "dispatched". Each order must have: product sku, product quantity and delivery information. When you change an order to dispatched status, the ecommerce microservice notify the delivery microservice through delivery creation endpoint provided by the delivery microservice api.
+7. As a "Marketplace User", you may "cancell" an order only if the status is "created" or "confirmed". In case an order is cancelled the available stock of the products must be increased.
+8. As a "Marketplace Administrator", you may list, view and "cancell" orders.
 9. As any kind of user you must see the current status of an order. The posible statuses are: "created", "confirmed", "dispached" and "delivered". The "delivered" status is triggered by the delivery microservices trough a webhook. That means the ecommerce microservice must provide an authenticated endpoint what will be registered in other microservices to notify when an order is delivered (or any other delivery status of an oder)
 
 
